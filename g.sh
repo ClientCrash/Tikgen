@@ -18,3 +18,4 @@ rm ./blur/*.mp4
 rm files.txt
 rmdir blur
 echo DONE
+echo "I only created this script to practice my bash coding..."
