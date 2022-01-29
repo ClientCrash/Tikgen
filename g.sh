@@ -1,4 +1,7 @@
+#! /bin/bash
+mkdir blur
 clear
+echo "https://github.com/clientcrash/Tikgen"
 echo Generating TikTok Compilation...
 echo "Downloading $1 top videos from /r/TikTokCringe/top.json"
 youtube-dl $(curl -s -H "User-agent: 'TCompV1: v1.0'" https://www.reddit.com/r/TikTokCringe/top.json\?limit=$1 | jq '.' | grep url_overridden_by_dest | grep -Eoh "https:\/\/v\.redd\.it\/\w{13}")
@@ -13,4 +16,5 @@ ffmpeg -f concat -i files.txt ./blur/result.mp4 -hide_banner -loglevel warning
 cp ./blur/result.mp4 ./result.mp4
 rm ./blur/*.mp4
 rm files.txt
+rmdir blur
 echo DONE
